@@ -5,15 +5,6 @@ const getPurchases = ((req, res) => {
     res.json(purchases)
 })
 
-const getPurchase = ((req, res) => {
-    const id = Number(req.params.purchasesID)
-    const purchase = purchases.find(purchases => purchases.id === id)
-    if (!purchase) {
-        return res.status(404).send('Purchase not found')
-    }
-    res.json(purchase)
-})
-
 const createPurchases = ((req, res) => {    
     const newPurchase = {
         id: purchases.length + 1,
@@ -34,6 +25,5 @@ const createPurchases = ((req, res) => {
 
 module.exports = {
     getPurchases,
-    getPurchase,
     createPurchases
 }
